@@ -3,7 +3,8 @@ import requests
  
 def fetch_businesses(municipalityId):
     try:
-        r = requests.get(municipalityId).json()
+    	identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/businesses'
+        r = requests.get(identifier).json()
         return pd.DataFrame(r['results'])
     except ValueError:
         print "invalid municipalityId"
