@@ -8,7 +8,8 @@ users can provide a 'stae' dataset resource url and retrieve a pandas dataframe.
 ``` 
 git clone github.com/mynameisvinn/PyStae
 cd PyStae
-python setup.py install
+python setup.py install  # install
+python setup.py develop  # fetch requirements and install
 ```
 
 ## Examples
