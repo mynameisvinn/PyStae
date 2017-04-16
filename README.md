@@ -12,4 +12,8 @@ python setup.py install
 ```
 
 ## Examples
-TODO
+```
+from pystae import fetch_businesses
+df = fetch_businesses(municipalityId='jers-nj')
+df.head()  # dataframe containing businesses in jersey city
+```
