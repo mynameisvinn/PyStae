@@ -5,6 +5,12 @@ a tool for downloading datasets in a python pandas friendly format from stae-pow
 users can provide a 'stae' dataset resource url and retrieve a pandas dataframe.
 
 ## Installation
+from pypi:	
+```
+pip install pystae
+```
+
+from source:
 ``` 
 git clone github.com/mynameisvinn/PyStae
 cd PyStae
