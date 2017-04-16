@@ -8,3 +8,12 @@ def fetch_businesses(municipalityId):
         return pd.DataFrame(r['results'])
     except ValueError:
         print "invalid municipalityId"
+
+
+def fetch_building_permits(municipalityId):
+    try:
+    	identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/building_permits'
+        r = requests.get(identifier).json()
+        return pd.DataFrame(r['results'])
+    except ValueError:
+        print "invalid municipalityId"
