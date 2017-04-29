@@ -1,13 +1,17 @@
 import pandas as pd
 import requests
+from tempfile import mkdtemp
+from joblib import Memory
 
+cachedir = mkdtemp()
+memory = Memory(cachedir=cachedir, verbose=0)
 
 def to_dataframe(func):
     def wrapper(municipalityId):
         return pd.DataFrame(func(municipalityId))
     return wrapper
 
-
+@memory.cache
 @to_dataframe
 def fetch_trips(municipalityId):
     try:
@@ -17,7 +21,7 @@ def fetch_trips(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_issues(municipalityId):
     try:
@@ -27,7 +31,7 @@ def fetch_issues(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_building_permits(municipalityId):
     try:
@@ -37,7 +41,7 @@ def fetch_building_permits(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_businesses(municipalityId):
     try:
@@ -47,7 +51,7 @@ def fetch_businesses(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_bike_lanes(municipalityId):
     try:
@@ -57,7 +61,7 @@ def fetch_bike_lanes(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_traffic_jams(municipalityId):
     try:
@@ -67,7 +71,7 @@ def fetch_traffic_jams(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_lights(municipalityId):
     try:
@@ -77,7 +81,7 @@ def fetch_lights(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_murals(municipalityId):
     try:
@@ -87,7 +91,7 @@ def fetch_murals(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_parks(municipalityId):
     try:
@@ -97,7 +101,7 @@ def fetch_parks(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_parcels(municipalityId):
     try:
@@ -107,7 +111,7 @@ def fetch_parcels(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_zones(municipalityId):
     try:
@@ -117,7 +121,7 @@ def fetch_zones(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_transit_routes(municipalityId):
     try:
@@ -127,7 +131,7 @@ def fetch_transit_routes(municipalityId):
     except ValueError:
         print "invalid municipalityId"
 
-
+@memory.cache
 @to_dataframe
 def fetch_transit_vehicles(municipalityId):
     try:
