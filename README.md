@@ -1,8 +1,5 @@
-# PyStae
-
-a tool for downloading datasets in a python pandas friendly format from stae-powered open data portals.
-
-users can provide a 'stae' dataset resource url and retrieve a pandas dataframe.
+# pystae
+pystae provides a simple interface to obtain stae datasets and return them as a (data scientist friendly) pandas dataframe.
 
 ## Installation
 install with `pip install pystae`
@@ -22,8 +19,11 @@ pystae depends on [requests](http://docs.python-requests.org/en/latest/). other 
 ```
 from pystae import fetch_businesses
 df = fetch_businesses(municipalityId='jers-nj')
-df.head()  # dataframe containing businesses in jersey city
+print df.head()  # dataframe containing businesses in jersey city
 ```
 
 ## Stae Documentation
 for official documentation on stae api, go [here](https://docs.municipal.systems/)
+
+## Todo
+* add local caching mechanism
