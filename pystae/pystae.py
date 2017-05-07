@@ -35,6 +35,9 @@ def fetch_trips(municipalityId):
     ----------
     .. [1] https://docs.municipal.systems/reference
     '''
+    if type(municipalityId) is not str:
+        raise ValueError('Municipality IDs are strings.')  # jersey city is "jers-nj"
+
     try:
         identifier = STAE_URI + municipalityId + '/trips'
         r = requests.get(identifier).json()
