@@ -5,6 +5,7 @@ from joblib import Memory
 
 cachedir = mkdtemp()
 memory = Memory(cachedir=cachedir, verbose=0)
+STAE_URI = 'https://municipal.systems/v1/municipalities/'
 
 def to_dataframe(func):
     def wrapper(municipalityId):
@@ -14,8 +15,28 @@ def to_dataframe(func):
 @memory.cache
 @to_dataframe
 def fetch_trips(municipalityId):
+    '''Retrieve trips for a given municipality.
+
+    Parameters
+    ----------
+    municipalityId : string
+        Stae-specific identifier.
+
+    Returns
+    -------
+    r : results
+        Results are wrapped in pandas dataframe.
+
+    Notes
+    -----
+    Results are cached locally.
+
+    References
+    ----------
+    .. [1] https://docs.municipal.systems/reference
+    '''
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/trips'
+        identifier = STAE_URI + municipalityId + '/trips'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -25,7 +46,7 @@ def fetch_trips(municipalityId):
 @to_dataframe
 def fetch_issues(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/issues'
+        identifier = STAE_URI + municipalityId + '/issues'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -35,7 +56,7 @@ def fetch_issues(municipalityId):
 @to_dataframe
 def fetch_building_permits(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/building_permits'
+        identifier = STAE_URI + municipalityId + '/building_permits'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -45,7 +66,7 @@ def fetch_building_permits(municipalityId):
 @to_dataframe
 def fetch_businesses(municipalityId):
     try:
-    	identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/businesses'
+    	identifier = STAE_URI + municipalityId + '/businesses'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -55,7 +76,7 @@ def fetch_businesses(municipalityId):
 @to_dataframe
 def fetch_bike_lanes(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/bike_lanes'
+        identifier = STAE_URI + municipalityId + '/bike_lanes'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -65,7 +86,7 @@ def fetch_bike_lanes(municipalityId):
 @to_dataframe
 def fetch_traffic_jams(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/traffic_jams'
+        identifier = STAE_URI + municipalityId + '/traffic_jams'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -75,7 +96,7 @@ def fetch_traffic_jams(municipalityId):
 @to_dataframe
 def fetch_lights(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/lights'
+        identifier = STAE_URI + municipalityId + '/lights'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -85,7 +106,7 @@ def fetch_lights(municipalityId):
 @to_dataframe
 def fetch_murals(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/murals'
+        identifier = STAE_URI + municipalityId + '/murals'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -95,7 +116,7 @@ def fetch_murals(municipalityId):
 @to_dataframe
 def fetch_parks(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/parks'
+        identifier = STAE_URI + municipalityId + '/parks'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -105,7 +126,7 @@ def fetch_parks(municipalityId):
 @to_dataframe
 def fetch_parcels(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/parcels'
+        identifier = STAE_URI + municipalityId + '/parcels'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -115,7 +136,7 @@ def fetch_parcels(municipalityId):
 @to_dataframe
 def fetch_zones(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/zones'
+        identifier = STAE_URI + municipalityId + '/zones'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -125,7 +146,7 @@ def fetch_zones(municipalityId):
 @to_dataframe
 def fetch_transit_routes(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/transit_routes'
+        identifier = STAE_URI + municipalityId + '/transit_routes'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
@@ -135,7 +156,7 @@ def fetch_transit_routes(municipalityId):
 @to_dataframe
 def fetch_transit_vehicles(municipalityId):
     try:
-        identifier = 'https://municipal.systems/v1/municipalities/' + municipalityId + '/transit_vehicles'
+        identifier = STAE_URI + municipalityId + '/transit_vehicles'
         r = requests.get(identifier).json()
         return r['results']
     except ValueError:
