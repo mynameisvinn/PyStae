@@ -1,10 +1,11 @@
 # pystae
+|Travis|_ |Coveralls|_
 pystae provides a simple interface to obtain stae datasets. datasets are returned in a data scientist friendly dataframe.
 
 ## Installation
 install with `pip install pystae`
 
-from source:
+or from source:
 ``` 
 git clone github.com/mynameisvinn/PyStae
 cd PyStae
