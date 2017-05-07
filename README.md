@@ -1,5 +1,4 @@
 # pystae
-|Travis|_ |Coveralls|_
 pystae provides a simple interface to obtain stae datasets. datasets are returned in a data scientist friendly dataframe.
 
 ## Installation
