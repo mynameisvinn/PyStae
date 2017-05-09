@@ -2,9 +2,7 @@
 pystae provides a simple interface to obtain stae datasets. datasets are returned in a data scientist friendly dataframe.
 
 ## Installation
-install with `pip install pystae`
-
-or from source:
+install with `pip install pystae` or from source:
 ``` 
 git clone github.com/mynameisvinn/PyStae
 cd PyStae
@@ -13,7 +11,7 @@ python setup.py develop  # or fetch requirements and install
 ```
 
 ## Requirements
-pystae depends on [requests](http://docs.python-requests.org/en/latest/). other requirements in `requirements.txt`.
+pystae depends on [requests](http://docs.python-requests.org/en/latest/).
 
 ## Examples
 ```
